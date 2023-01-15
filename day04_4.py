@@ -12,23 +12,31 @@ while True:
     elif num == 2:
         origin = input('수정할 값을 입력하세요 ==> ')
         for i in lst:
-            if i == origin:
-                flag = 1                                               # 입력된 값이 없다면 
-        
-        if flag == 1:
+            if i == origin:                                               # 만약 입력받은 값 origianl 변수에 있다면 
+                flag = 1                                                  # flag 에 1 기입         
+
+        if flag == 1:                                                     # flag 가 1 이면 0 기입
             flag = 0
-            result = lst.index(origin)            # 수정할 값의 위치를 찾음            
+            result = lst.index(origin)                                    # 수정할 값의 위치를 찾음            
         else:
-            print('없음')
+            print('값이 존재하지 않음')                                    # 나머지면 '값이 존재하지 않음'출력, 그후 맨앞으로 돌아감
             continue
-        #     result = lst.index(input('잘못된 값입니다. 다시 입력하세요 ==> '))
+
         lst[result] = (input('수정할 값을 입력하세요 ==> '))                # 찾은 위치의 값을 입력받은 값으로 수정
                     # 값을 수정
-    elif num == 3:                                                        # 입력받은 값을 제거
-        lst.remove(input('삭제할 값을 입력하세요 ==> '))
-        # if lst.remove(input('삭제할 값을 입력하세요 ==> ')) != lst:         # 입력된 값이 없다면    
-        #     lst.remove(input('잘못된 값입니다. 다시 입력하세요 ==> '))
-                           # 삭제할 값 입력
+    elif num == 3:
+        original = input('삭제할 값을 입력하세요 ==> ')                     #삭제할 값 입력
+        for i in lst:
+            if i == original:                                             # 만약 입력받은 값이 origianl 변수에 있다면 
+                flag = 1                                                  # flag 에 1 기입 
+
+        if flag == 1:                                                     # flag 가 1 이면 0 기입
+            flag = 0
+            lst.remove(original)                                          # 입력받은 값을 제거
+        else:
+            print('값이 존재하지 않음')                                    # 나머지면 '값이 존재하지 않음'출력, 그후 맨앞으로 돌아감 
+            continue
+
     elif num == 4:                                                        
         for i in lst:
             print(i)       # 전체 조회     
